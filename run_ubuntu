@@ -1,0 +1,20 @@
+#!/bin/bash
+
+USR="ubuntu_usr"
+LIB="ubuntu_lib"
+CONTAINER_HOME="ubuntu_home"
+ETC="ubuntu_etc"
+
+su
+
+docker run -it \
+	--mount source=$ETC,target=/etc\
+	--mount source=$LIB,target=/lib\
+	--mount source=$USR,target=/usr\
+	--mount source=$CONTAINER_HOME,target=/home\
+	jacobmealey/dockertest:latest
+	
+
+
+
+

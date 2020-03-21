@@ -1,0 +1,18 @@
+#!/bin/bash
+
+USER=$(whoami)
+
+USR="ubuntu_usr"
+LIB="ubuntu_lib"
+CONTAINER_HOME="ubuntu_home"
+ETC="ubuntu_etc"
+
+su
+
+docker volume create $USR 
+docker volume create $LIB
+docker volume create $CONTAINER_HOME
+docker volume create $ETC
+
+docker build --build-arg USER=$USER -t jacobmealey/dockertest:latest ubuntu
+
