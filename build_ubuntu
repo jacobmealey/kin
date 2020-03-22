@@ -7,12 +7,18 @@ LIB="ubuntu_lib"
 CONTAINER_HOME="ubuntu_home"
 ETC="ubuntu_etc"
 
-su
 
-docker volume create $USR 
-docker volume create $LIB
-docker volume create $CONTAINER_HOME
-docker volume create $ETC
+sudo docker volume create $USR 
+sudo docker volume create $LIB
+sudo docker volume create $CONTAINER_HOME
+sudo docker volume create $ETC
 
-docker build --build-arg USER=$USER -t jacobmealey/dockertest:latest ubuntu
+sudo chmod 777 /var/lib/docker
+sudo chmod 777 /var/lib/docker/volumes
+
+sudo ln -s /var/lib/docker/volumes/$CONTAINER_HOME/_data/ ubuntu/home
+sudo ln -s /var/lib/docker/volumes/$USR/_data/ ubuntu/usr
+sudo ln -s /var/lib/docker/volumes/$LIB/_data/ ubuntu/lib
+sudo ln -s /var/lib/docker/volumes/$ETC/_data/ ubuntu/etc
+sudo docker build --build-arg USER=$USER -t jacobmealey/kin:latest ubuntu/
 
