@@ -7,10 +7,10 @@ ETC="ubuntu_etc"
 
 
 sudo docker run -it \
-	--mount source=$ETC,target=/etc\
-	--mount source=$LIB,target=/lib\
-	--mount source=$USR,target=/usr\
-	--mount source=$CONTAINER_HOME,target=/home\
+	--mount source=ubuntu_usr,target=/usr\
+	--mount source=ubuntu_etc,target=/etc\
+	--mount source=ubuntu_lib,target=/lib\
+	--mount source=ubuntu_home,target=/home\
 	jacobmealey/kin:latest
 	
 

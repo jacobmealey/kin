@@ -16,9 +16,14 @@ sudo docker volume create $ETC
 sudo chmod 777 /var/lib/docker
 sudo chmod 777 /var/lib/docker/volumes
 
+sudo docker build --build-arg USER=$USER -t jacobmealey/kin:latest ubuntu/
+sudo docker run jacobmealey/kin:latest
+
 sudo ln -s /var/lib/docker/volumes/$CONTAINER_HOME/_data/ ubuntu/home
 sudo ln -s /var/lib/docker/volumes/$USR/_data/ ubuntu/usr
-sudo ln -s /var/lib/docker/volumes/$LIB/_data/ ubuntu/lib
 sudo ln -s /var/lib/docker/volumes/$ETC/_data/ ubuntu/etc
-sudo docker build --build-arg USER=$USER -t jacobmealey/kin:latest ubuntu/
+sudo ln -s /var/lib/docker/volumes/$LIB/_data/ ubuntu/lib
+
+sudo rm -rf ubuntu/*/
+
 
