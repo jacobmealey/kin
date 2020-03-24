@@ -1,0 +1,19 @@
+#!/bin/bash
+
+USR="ubuntu_usr"
+LIB="ubuntu_lib"
+CONTAINER_HOME="ubuntu_home"
+ETC="ubuntu_etc"
+
+
+sudo docker run -it \
+	--mount source=ubuntu_usr,target=/usr\
+	--mount source=ubuntu_etc,target=/etc\
+	--mount source=ubuntu_lib,target=/lib\
+	--mount source=ubuntu_home,target=/home\
+	jacobmealey/kin:latest
+	
+
+
+
+
