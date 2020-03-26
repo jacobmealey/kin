@@ -2,10 +2,10 @@
 
 USER=$(whoami)
 
-USR="ubuntu_usr"
-LIB="ubuntu_lib"
-CONTAINER_HOME="ubuntu_home"
-ETC="ubuntu_etc"
+USR="arch_usr"
+LIB="arch_lib"
+CONTAINER_HOME="arch_home"
+ETC="arch_etc"
 
 
 sudo docker volume create $USR 
