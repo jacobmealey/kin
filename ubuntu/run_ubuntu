@@ -7,6 +7,8 @@ ETC="ubuntu_etc"
 
 
 sudo docker run -it \
+	-e DISPLAY=$DISPLAY\
+	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	--mount source=ubuntu_usr,target=/usr\
 	--mount source=ubuntu_etc,target=/etc\
 	--mount source=ubuntu_lib,target=/lib\
