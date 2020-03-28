@@ -1,18 +1,16 @@
 #!/bin/bash
-
-USR="ubuntu_usr"
-LIB="ubuntu_lib"
-CONTAINER_HOME="ubuntu_home"
-ETC="ubuntu_etc"
-
+USR="arch_usr"
+LIB="arch_lib"
+CONTAINER_HOME="arch_home"
+ETC="arch_etc"
 
 sudo docker run -it \
 	-e DISPLAY=$DISPLAY\
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
-	--mount source=ubuntu_usr,target=/usr\
-	--mount source=ubuntu_etc,target=/etc\
-	--mount source=ubuntu_lib,target=/lib\
-	--mount source=ubuntu_home,target=/home\
+	--mount source=$USR,target=/usr\
+	--mount source=$ETC,target=/etc\
+	--mount source=$LIB,target=/lib\
+	--mount source=$CONTAINER_HOME,target=/home\
 	jacobmealey/kin:latest
 	
 
