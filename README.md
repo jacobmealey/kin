@@ -5,14 +5,17 @@ We are all of the same roots.
 Kin is a project that harnesses the power of Docker to give developers access to other distros without having to dual boot or run a virtual machine! 
 
 **Getting Started**
+install:
+
+`./install.sh`
 
 create a new container:
 
-`./kin create ubuntu newcontainer`
+`kin create ubuntu newcontainer`
 
 run said container:
 
-`./kin run newcontainer`
+`kin run newcontainer`
 
 
 Kin [ mode ]:
