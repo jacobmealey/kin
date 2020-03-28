@@ -5,15 +5,24 @@ LIB="ubuntu_lib"
 CONTAINER_HOME="ubuntu_home"
 ETC="ubuntu_etc"
 
+if ! [ -z $1 ]
+then
+	NAME=$1
+	echo $NAME
+else
+	echo "Please enter a container name"
+	exit 1
+fi
 
 sudo docker run -it \
 	-e DISPLAY=$DISPLAY\
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-h $NAME \
 	--mount source=ubuntu_usr,target=/usr\
 	--mount source=ubuntu_etc,target=/etc\
 	--mount source=ubuntu_lib,target=/lib\
 	--mount source=ubuntu_home,target=/home\
-	jacobmealey/kin_ubuntu:latest
+	jacobmealey/$NAME:latest
 	
 
 

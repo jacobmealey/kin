@@ -9,6 +9,16 @@ LIB="ubuntu_lib"
 CONTAINER_HOME="ubuntu_home"
 ETC="ubuntu_etc"
 
+if ! [ -z $1 ]
+then
+	NAME=$1
+	echo $NAME
+else
+	echo "Please enter a container name"
+	exit 1
+fi
+
+
 
 sudo docker volume create $USR 
 sudo docker volume create $LIB
@@ -18,7 +28,7 @@ sudo docker volume create $ETC
 sudo chmod 777 /var/lib/docker
 sudo chmod 777 /var/lib/docker/volumes
 
-sudo docker build --build-arg USER=$USER -t jacobmealey/kin_ubuntu:latest ubuntu/
+sudo docker build --build-arg USER=$USER -t jacobmealey/$NAME:latest ubuntu/
 
 sudo ln -s /var/lib/docker/volumes/$CONTAINER_HOME/_data/ ubuntu/home
 sudo ln -s /var/lib/docker/volumes/$USR/_data/ ubuntu/usr
