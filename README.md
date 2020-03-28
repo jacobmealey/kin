@@ -19,7 +19,11 @@ Kin [ mode ]:
 - create [ distro base ] [ container name ]
 - run [ container name ]
   
-
+Distro bases avaialable:
+| Distro     | Name       |
+|------------|------------|
+| Ubuntu     | ubuntu     |
+| Arch Linux | arch-linux |
 
 The default password for the root user and the user is `kin`.
 
