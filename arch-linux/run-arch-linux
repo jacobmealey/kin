@@ -11,7 +11,7 @@ sudo docker run -it \
 	--mount source=$ETC,target=/etc\
 	--mount source=$LIB,target=/lib\
 	--mount source=$CONTAINER_HOME,target=/home\
-	jacobmealey/kin:latest
+	jacobmealey/kin_arch_linux:latest
 	
 
 

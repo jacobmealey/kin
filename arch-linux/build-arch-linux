@@ -17,8 +17,7 @@ sudo docker volume create $ETC
 sudo chmod 777 /var/lib/docker
 sudo chmod 777 /var/lib/docker/volumes
 
-sudo docker build --build-arg USER=$USER -t jacobmealey/kin:latest arch-linux/
-sudo docker run jacobmealey/kin:latest
+sudo docker build --build-arg USER=$USER -t jacobmealey/kin_arch_linux:latest arch-linux/
 
 sudo ln -s /var/lib/docker/volumes/$CONTAINER_HOME/_data/ arch-linux/home
 sudo ln -s /var/lib/docker/volumes/$USR/_data/ arch-linux/usr

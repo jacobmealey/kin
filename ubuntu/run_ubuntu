@@ -13,7 +13,7 @@ sudo docker run -it \
 	--mount source=ubuntu_etc,target=/etc\
 	--mount source=ubuntu_lib,target=/lib\
 	--mount source=ubuntu_home,target=/home\
-	jacobmealey/kin:latest
+	jacobmealey/kin_ubuntu:latest
 	
 
 
