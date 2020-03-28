@@ -1,13 +1,6 @@
 #!/bin/bash
 cp Dockerfile arch_linux/
 
-USER=$(whoami)
-
-USR="arch_usr"
-LIB="arch_lib"
-CONTAINER_HOME="arch_home"
-ETC="arch_etc"
-
 if ! [ -z $1 ]
 then
 	NAME=$1
@@ -17,6 +10,13 @@ else
 	exit 1
 fi
 
+
+USER=$(whoami)
+
+USR=$NAME"_usr"
+LIB=$NAME"_lib"
+CONTAINER_HOME=$NAME"_home"
+ETC=$NAME"_etc"
 
 
 sudo docker volume create $USR 

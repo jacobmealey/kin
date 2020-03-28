@@ -1,6 +1,39 @@
 #!/bin/bash
 
 create (){
-	name = $1
-	
+	DISTRO=$1
+	NAME=$2
+	if [ $DISTRO == "arch-linux" ]
+	then
+		arch-linux/build-arch-linux $NAME
+		return 0
+	fi	
+
+	if [ $DISTRO == "ubuntu" ]
+	then
+		ubuntu/build_ubuntu $NAME
+		return 0
+	fi
 }
+
+run () {
+	NAME=$1
+	./run $NAME
+}
+
+
+if [ -z $1 ]
+then
+	echo "Please select a mode!"
+	exit 1
+fi
+
+if [ $1 == "create" ] 
+then
+	create $2 $3
+fi
+
+if [ $1 == "run" ]
+then
+	run $2
+fi
