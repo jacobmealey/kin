@@ -8,6 +8,16 @@ LIB="arch_lib"
 CONTAINER_HOME="arch_home"
 ETC="arch_etc"
 
+if ! [ -z $1 ]
+then
+	NAME=$1
+	echo $NAME
+else
+	echo "Please enter a container name"
+	exit 1
+fi
+
+
 
 sudo docker volume create $USR 
 sudo docker volume create $LIB
@@ -17,7 +27,7 @@ sudo docker volume create $ETC
 sudo chmod 777 /var/lib/docker
 sudo chmod 777 /var/lib/docker/volumes
 
-sudo docker build --build-arg USER=$USER -t jacobmealey/kin_arch_linux:latest arch-linux/
+sudo docker build --build-arg USER=$USER -t jacobmealey/$NAME:latest arch-linux/
 
 sudo ln -s /var/lib/docker/volumes/$CONTAINER_HOME/_data/ arch-linux/home
 sudo ln -s /var/lib/docker/volumes/$USR/_data/ arch-linux/usr

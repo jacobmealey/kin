@@ -4,14 +4,25 @@ LIB="arch_lib"
 CONTAINER_HOME="arch_home"
 ETC="arch_etc"
 
+if ! [ -z $1 ]
+then
+	NAME=$1
+	echo $NAME
+else
+	echo "Please enter a container name"
+	exit 1
+fi
+
+
 sudo docker run -it \
 	-e DISPLAY=$DISPLAY\
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
+	-h $NAME \
 	--mount source=$USR,target=/usr\
 	--mount source=$ETC,target=/etc\
 	--mount source=$LIB,target=/lib\
 	--mount source=$CONTAINER_HOME,target=/home\
-	jacobmealey/kin_arch_linux:latest
+	jacobmealey/$NAME:latest
 	
 
 
