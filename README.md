@@ -38,12 +38,13 @@ The default password for the root user and the user is `kin`.
 - Running multiple instances of the same container
 
 **What Needs to Be Done**
-- Ability to acess host machine filesystem from within the container
-- On the fly portforwarding from container ports to host ports
-- Create more distros 
-  - Alpine
-  - Fedora
-  - Arch (??)
+- Installation Script
+- Connecting ports between the container and the host
+
 
 **What Needs to Be Done Way Down the Road**
 - GUI
+- Create more distros 
+  - Alpine
+  - Fedora
+
